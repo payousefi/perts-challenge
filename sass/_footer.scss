@@ -1,0 +1,38 @@
+/* Footer */
+
+footer {
+    padding-top: 45px;
+    padding-bottom: 60px;
+    background: #33333D
+}
+@include media($tablet) {
+    footer {
+        text-align: center
+    }
+}
+footer {
+    span {
+        display: inline-block;
+        margin-right: 10px
+    }
+    a {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: white;
+        display: inline-block;
+        margin-right: 20px
+    }
+    a:hover,
+    a:focus {
+        color: white;
+        text-decoration: none
+    }
+    .perts-address {
+        margin-top: 5px;
+        color: #999
+    }
+    .perts-address span {
+        letter-spacing: 0.5px
+    }
+}

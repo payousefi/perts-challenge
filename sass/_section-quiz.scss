@@ -1,0 +1,266 @@
+/* Section: Quiz */
+
+/* Background flash card */
+
+.quiz-wrapper {
+    z-index: 0;
+    @include lined-background($card-line-back, $card-shade-back, 20px);
+    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+}
+/* Rotated background flash cards */
+
+.quiz-wrapper:before {
+    display: block;
+    z-index: -2;
+    content: '';
+    background: inherit;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    @include transform(rotate(-3deg));
+    transform-origin: 50%;
+    @include box-shadow(inherit);
+}
+.quiz-wrapper:after {
+    display: block;
+    z-index: -1;
+    content: '';
+    background: inherit;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    @include transform(rotate(3deg));
+    transform-origin: 50%;
+    @include box-shadow(inherit);
+}
+
+/* Card flipping CSS/animations */
+
+.perspective {
+    perspective: 1000px
+}
+.quiz-wrapper {
+    
+    .main-card {
+        z-index: 1;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        position: relative;
+        min-height: 270px;
+        color: #000;
+        text-align: center;
+        @include transition(0.6s);
+    }
+    .main-card.flip {    
+        @include transform(rotateY(-180deg));
+    }
+    
+    // Front/back content for the swaps
+    
+    .main-card .front, .main-card .back {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1
+    }
+    .main-card .front *, .main-card .back * {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .main-card .front {
+        @include transform(rotateY(0deg));
+        /* Lined flashcard style */
+        @include lined-background($card-line-front, #FFFFFF, 20px);
+        @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+    }
+    
+    // Pink stripe at top 
+    .main-card .front:before {
+        content: "\a0";
+        display: block;
+        line-height: 2px;
+        background: #FFF;
+        padding-bottom: 21px;
+        border-bottom: 2px solid $card-stripe
+    }
+    
+    // Initially hidden back pane - quiz questions go here
+    .main-card .back {
+        @include transform(rotateY(-180deg));
+        @include linear-gradient(#FFFFFF, #FFFFFF 0%, #FFFFFF 90%, $card-shade 100%);
+        @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+    }
+    
+    .main-card .progressBar {
+        display: block;
+        z-index:2;
+        position: absolute;
+        left:0px;
+        bottom:0px;
+        font-family: $font-open-sans;
+        height: 4px;
+        width:0%;
+        background: $green;
+        opacity:0;
+        @include transition(width 1s ease-in-out, opacity 1s ease-in-out);
+    }
+    
+}
+@include media($mobile) {    
+    .quiz-wrapper .main-card {
+        min-height: 350px;
+    }
+}
+
+/* Actual quiz content */
+
+.quiz-content {
+    font-family: $font-slabo;
+    color: #000;
+    display: block;
+    text-align: center
+}
+
+/* Time / Number of questions blocks */
+
+.quiz-content {
+    
+    .intro-block {
+        display: inline-block;
+        margin: 0px 25px;
+        height: 100px;
+        font-family: $font-open-sans;
+        font-size: 18px;
+        color: #333;
+        line-height: 40px;
+        text-align: center;
+        cursor: default
+    }
+    .intro-block .material-icons {
+        margin: 0px;
+        display:block
+    }
+    
+    // Start button
+    button.start {
+        display: inline-block;
+        background: $highlight-pink-1;
+        margin: 20px 0px;
+        padding: 5px 20px;
+        font-size: 34px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        line-height: 24px;
+        color: #222;
+        vertical-align: middle;    
+        @include transform(rotate(-2deg));
+        transform-origin: 50%
+    }
+    button.start:hover {
+        background: $highlight-pink-2
+    }
+    button.start:focus {
+        background: $highlight-pink-3
+    }
+    
+}
+
+/* During quiz */
+
+.quiz-active {
+    display: inline-block;
+    padding: 20px 60px;
+    line-height: 25px;
+    text-align: center;
+    @include transition(opacity 300ms ease-out);
+}
+
+@include media($mobile) {
+    .quiz-active {
+        line-height: 25px;
+        padding: 30px 20px
+    }
+}
+
+/* Question titles */
+
+.quiz-active {
+    
+    h3 {
+        margin: 15px 0 0 0;
+        font-size: 22px;
+        line-height: 34px;
+        font-weight: 400;
+        cursor: default !important
+    }
+    h3.highlight {
+        background: $highlight-yellow-3;
+        color: #000;
+        line-height: 22px;
+        margin-bottom: 15px;
+        padding: 0px 10px;    
+        @include transform(rotate(-1deg));
+    }
+    h3.highlight.pink {
+        background: $highlight-pink-1;
+        color: #000
+    }
+    
+    ul {
+        list-style-type: none;
+        margin: 20px 40px 0px 40px;
+        padding: 0;
+        text-align: center
+    }
+    ul li {
+        padding: 0;
+        margin: 0;
+        text-align: center
+    }
+    
+}
+
+/* True/false buttons */
+
+button.option {
+    display: block;
+    margin: 0;
+    padding: 5px;
+    background: $highlight-yellow-1;
+    border: 0;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: $font-open-sans;
+    cursor: pointer;
+    text-align: center
+}
+button.option:hover {
+    background: $highlight-yellow-2
+}
+button.option:focus {
+    background: $highlight-yellow-3
+}
+button.option:target {
+    background: $highlight-yellow-1
+}
+
+
+/* Mobile fixes */
+@include media($mobile) {
+    button.option {
+        margin-bottom: 15px;
+    }
+    button.option:hover, button.option:focus, button.option:target {
+        background: $highlight-yellow-1
+    }
+}

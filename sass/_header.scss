@@ -1,0 +1,37 @@
+/* Section: Header */
+
+header {
+    background: $header-blue;
+    @include linear-gradient($header-blue, $dark-blue 0%, $header-blue 100%);
+    color: #FFF
+}
+.section-header {
+    background-image: url(../media/masthead-mindset.png);
+    background-position: bottom center;
+    background-size: cover;
+    padding:70px 0px
+}
+.section-header h1 {
+    margin: 10px 0px;
+    color: #FFF;
+    font-size: 46px;
+    font-weight: 300;
+    letter-spacing: 0.5px
+}
+
+/* Nav bar */
+
+.navbar {
+    height: 50px;
+    width: 100%;
+    margin: 0px;
+    background: #FFF;
+    padding-top: 10px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+    @include border-radius(0);
+}
+.navbar a {
+    margin-bottom: 10px
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <link rel="shortcut icon" href="https://perts.net/favicon.ico" type="image/x-icon" />
+  <title>PERTS Challenge</title>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic|Slabo+13px|Material+Icons' type='text/css'>
+  <link rel="stylesheet" href="stylesheets/main.css">
+  <!-- Load JS/JQuery scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+  <script src="scripts/main.js"></script>
+</head>
+<body ng-app="quizApp">
+
+  <!-- PERTS navbar / icon (copied for consistency/branding) -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <a href="https://www.perts.net/" target="_blank"><img src="https://www.perts.net/static/images/pertslogo.png" height="30px"></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Header Section -->
+  <header>
+    <div class="container-fluid">
+      <div class="row section section-header">
+        <div class="col-sm-12">
+          <h1>What is <b>my</b> mindset?</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <div class="container">
+      <div class="row section">
+          <!-- Information -->
+          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-6 col-lg-6 section-information" ng-controller="informationalCtrl">
+            <p>As an educator, encouraging a growth mindset will help your students do better in school.</p>
+            <p><em><strong>Your mindset</strong></em> plays a big role, too.</p>
+            <p class="quiz-description">Take this short quiz to assess your mindset.</p>
+            <p class="more-info" ng-show="showingMore">
+              People with a <b>growth mindset</b> think intelligence is &ldquo;malleable&rdquo;, capable of being developed and increased through hard work.
+              <br/><br/>
+              Others with a <b>fixed mindset</b> think that intelligence is fixed: that they have a certain amount of it which cannot really be changed.
+              <br/><br><a href="https://www.mindsetkit.org/topics/about-growth-mindset/what-is-growth-mindset" title="Learn more" target="_blank"><i class="material-icons md-18">&#xE157;</i>Learn more about the growth mindset</a>
+            </p>
+
+            <p class="more-info-tag" ng-show="!showingMore"><a ng-click="showMoreInfo()" title="What is a growth mindset?">
+              <i class="material-icons ">&#xE887;</i>What is a growth mindset?</a>
+            </p>
+          </div>
+          <!-- Quiz app -->
+          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-6 col-lg-6 perspective">
+            <div class="quiz-wrapper noselect" ng-controller="quizCtrl">
+                <div class="main-card">
+                    <div class="quiz-content front">
+                        <div class="intro" ng-show="!inProgress">
+                            <h3 class="highlight pink">Mindset Quiz</h3>
+                            <div class="blocks-wrapper">
+                              <div class="intro-block"><i class="material-icons md-64">&#xE192;</i>&lt; 1 min</div>
+                              <div class="intro-block"><i class="material-icons md-64">&#xE3D4;</i>Questions</div>
+                            </div>
+                            <button class="start" ng-click="startQuiz()">Start</button>
+                        </div>
+                        <div class="quiz-active" ng-show="inProgress">
+                            <div class="results" ng-show="finished">
+                              <div class="gauge-container">
+                                  <div class="gauge-a"></div>
+                                  <div class="gauge-b"></div>
+                                  <div class="gauge-c"></div>
+                                  <div class="gauge-data">
+                                    <span id="gauge-percent">0%</span><br/>Growth
+                                  </div>
+                              </div>
+                              <h3>{{mindset}}</h3>
+                              <button class="option reset" ng-click="reset()"><i class="material-icons">&#xE86A;</i> Take again</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz-content back">
+                        <div class="quiz-active" ng-show="inProgress">
+                            <div ng-show="!finished">
+                                <h3 id="question">{{question}}</h2>
+                                <ul class="options">
+                                  <li><button class="option" ng-click="answer(true)">True</button></li>
+                                  <li><button class="option" ng-click="answer(false)">False</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="progressBar" ng-show="inProgress && !finished" style="opacity:{{ ((questionID+1)/4) }}; width:{{ ((questionID+1)/4)*100 }}%"></div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+<!-- (Copied, for consistency) PERTS footer -->
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <a href="https://www.perts.net/" target="_blank">home</a>
+          <a href="https://www.perts.net/about" target="_blank">about</a>
+          <a href="https://www.perts.net/resources" target="_blank">resources</a>
+          <a href="https://www.perts.net/careers" target="_blank">careers</a>
+          <a href="https://www.perts.net/enrolling_colleges" target="_blank">enrolling</a>
+          <a href="https://www.perts.net/contact" target="_blank">contact</a>
+          <a href="https://www.perts.net/blog" target="_blank">blog</a>
+          <a href="https://www.perts.net/login" target="_blank">log in</a>
+          <a href="http://www.stanford.edu/site/terms.html" target="_blank">Terms of Use</a>
+          <div class="perts-address">
+            <span>
+              <i class="fa fa-home fw"></i>
+              901 Mission Street #105, San Francisco, CA 94103&nbsp;&nbsp;
+            </span><span>
+              <i class="fa fa-envelope fw"></i>
+              &nbsp;contact@perts.net
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

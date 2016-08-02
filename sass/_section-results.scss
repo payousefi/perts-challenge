@@ -1,0 +1,82 @@
+/* Results Section */
+
+.results h3 {
+    line-height: 30px;
+    margin-top: 10px
+}
+
+.results .reset {
+    z-index: 5;
+    position: absolute;
+    top: 28px;
+    right: 20px;
+    width: auto;
+    padding: 0px 5px;
+    @include transform(rotate(3deg));
+}
+.gauge-container {
+    display: inline-block;
+    width: 260px;
+    height: 130px;
+    position: relative;
+    overflow: hidden;
+    text-align: center
+}
+@include media($mobile) {
+    .gauge-container {
+        margin-top: 15px;
+    }
+    
+}
+.gauge-a {
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    width: 260px;
+    height: 130px;
+    background: $red;    
+    @include border-radius(130px 130px 0px 0px);
+}
+.gauge-b {
+    z-index: 3;
+    position: absolute;
+    background: $highlight-yellow-1;
+    width: 63.3333%;
+    height: 63.3333%;
+    top: 36.6666%;
+    margin-left: 18.3333%;
+    margin-right: auto;
+    @include border-radius(130px 130px 0px 0px);
+}
+.gauge-c {
+    z-index: 2;
+    position: absolute;
+    background: $green;
+    width: 260px;
+    height: 130px;
+    top: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    @include border-radius(0px 0px 130px 130px);
+    transform-origin: center top;
+    @include transition(all 1.3s ease-in-out);
+}
+.gauge-data {
+    z-index: 4;
+    position: absolute;
+    width: 260px;
+    height: 130px;
+    top: 46.6666%;
+    font-family: $font-open-sans;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 32px;
+    color: #333;
+    margin-left: auto;
+    margin-right: auto;
+    @include transition(all 1s ease-out);
+}
+.gauge-data span {
+    font-size: 32px;
+    font-weight: 700
+}

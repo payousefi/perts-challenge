@@ -1,0 +1,686 @@
+/**
+  * Main CSS stylesheet for PERTS Challenege
+  * by Payam Yousefi | 08-01-16
+  */
+/* Animation keyframes */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Components */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: #338EDD;
+}
+
+a:hover {
+  color: #338EDD;
+  text-decoration: none;
+}
+
+a[ng-click] {
+  cursor: pointer;
+}
+
+p {
+  line-height: 24px;
+  margin: 0 0 25px;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+button, button:focus {
+  outline: 0;
+  border: 0;
+}
+
+button {
+  -webkit-transition: background-color 300ms ease-out;
+  -moz-transition: background-color 300ms ease-out;
+  -ms-transition: background-color 300ms ease-out;
+  -o-transition: background-color 300ms ease-out;
+  transition: background-color 300ms ease-out;
+}
+
+/* Other options */
+.noselect * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.perspective {
+  perspective: 1000px;
+}
+
+/* Material Icons */
+.material-icons {
+  margin: 0px 5px;
+  vertical-align: middle;
+}
+
+a .material-icons,
+a .material-icons:hover {
+  text-decoration: none;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.material-icons.md-64 {
+  font-size: 64px;
+}
+
+/* Section defaults */
+.section {
+  padding: 50px 0px;
+  text-align: center;
+}
+
+/* Section: Header */
+header {
+  background: #338EDD;
+  background: #338EDD;
+  background: -moz-linear-gradient(top, #005498 0%, #338EDD 100%);
+  background: -webkit-linear-gradient(top, #005498 0%, #338EDD 100%);
+  background: linear-gradient(to bottom, #005498 0%, #338EDD 100%);
+  color: #FFF;
+}
+
+.section-header {
+  background-image: url(../media/masthead-mindset.png);
+  background-position: bottom center;
+  background-size: cover;
+  padding: 70px 0px;
+}
+
+.section-header h1 {
+  margin: 10px 0px;
+  color: #FFF;
+  font-size: 46px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Nav bar */
+.navbar {
+  height: 50px;
+  width: 100%;
+  margin: 0px;
+  background: #FFF;
+  padding-top: 10px;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
+
+.navbar a {
+  margin-bottom: 10px;
+}
+
+/* Section: Quiz Information */
+.section-information {
+  padding-right: 40px;
+}
+
+@media screen and (max-width: 986px) {
+  .section-information {
+    margin-bottom: 30px;
+    padding-right: 15px;
+  }
+}
+.section-information p {
+  font-size: 20px;
+  color: #666;
+  font-weight: 400;
+  line-height: 28px;
+}
+.section-information .quiz-description {
+  font-weight: 600;
+  color: #333;
+}
+.section-information .more-info-tag {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.section-information .more-info {
+  display: block;
+  margin: 15px 20px;
+  padding: 15px;
+  background: #EAE0F0;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333;
+  opacity: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  -moz-animation: fadeIn 1s ease-in-out;
+  -webkit-animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
+  -moz-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.section-information .more-info a,
+.section-information .more-info a:hover {
+  color: #4A285E;
+}
+
+/* Section: Quiz */
+/* Background flash card */
+.quiz-wrapper {
+  z-index: 0;
+  background: #F8F8F8;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#C3D7E2), color-stop(4%, #F8F8F8)) 0 4px;
+  background: -webkit-linear-gradient(top, #C3D7E2 0%, #F8F8F8 8%) 0 4px;
+  background: -moz-linear-gradient(top, #C3D7E2 0%, #F8F8F8 8%) 0 4px;
+  background: -ms-linear-gradient(top, #C3D7E2 0%, #F8F8F8 8%) 0 4px;
+  background: -o-linear-gradient(top, #C3D7E2 0%, #F8F8F8 8%) 0 4px;
+  background: linear-gradient(top, #C3D7E2 0%, #F8F8F8 8%) 0 4px;
+  -webkit-background-size: 100% 20px;
+  -moz-background-size: 100% 20px;
+  -ms-background-size: 100% 20px;
+  -o-background-size: 100% 20px;
+  background-size: 100% 20px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Rotated background flash cards */
+.quiz-wrapper:before {
+  display: block;
+  z-index: -2;
+  content: '';
+  background: inherit;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  -webkit-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+  transform-origin: 50%;
+  -webkit-box-shadow: inherit;
+  -moz-box-shadow: inherit;
+  box-shadow: inherit;
+}
+
+.quiz-wrapper:after {
+  display: block;
+  z-index: -1;
+  content: '';
+  background: inherit;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  -webkit-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+  transform-origin: 50%;
+  -webkit-box-shadow: inherit;
+  -moz-box-shadow: inherit;
+  box-shadow: inherit;
+}
+
+/* Card flipping CSS/animations */
+.perspective {
+  perspective: 1000px;
+}
+
+.quiz-wrapper .main-card {
+  z-index: 1;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  position: relative;
+  min-height: 270px;
+  color: #000;
+  text-align: center;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -ms-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+}
+.quiz-wrapper .main-card.flip {
+  -webkit-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+.quiz-wrapper .main-card .front, .quiz-wrapper .main-card .back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.quiz-wrapper .main-card .front *, .quiz-wrapper .main-card .back * {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.quiz-wrapper .main-card .front {
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  /* Lined flashcard style */
+  background: #FFFFFF;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#D9EAF3), color-stop(4%, #FFFFFF)) 0 4px;
+  background: -webkit-linear-gradient(top, #D9EAF3 0%, #FFFFFF 8%) 0 4px;
+  background: -moz-linear-gradient(top, #D9EAF3 0%, #FFFFFF 8%) 0 4px;
+  background: -ms-linear-gradient(top, #D9EAF3 0%, #FFFFFF 8%) 0 4px;
+  background: -o-linear-gradient(top, #D9EAF3 0%, #FFFFFF 8%) 0 4px;
+  background: linear-gradient(top, #D9EAF3 0%, #FFFFFF 8%) 0 4px;
+  -webkit-background-size: 100% 20px;
+  -moz-background-size: 100% 20px;
+  -ms-background-size: 100% 20px;
+  -o-background-size: 100% 20px;
+  background-size: 100% 20px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.quiz-wrapper .main-card .front:before {
+  content: "\a0";
+  display: block;
+  line-height: 2px;
+  background: #FFF;
+  padding-bottom: 21px;
+  border-bottom: 2px solid #FFC7D0;
+}
+.quiz-wrapper .main-card .back {
+  -webkit-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+  background: #FFFFFF;
+  background: -moz-linear-gradient(top, #FFFFFF 0%, #FFFFFF 90%, #FAFAFA 100%);
+  background: -webkit-linear-gradient(top, #FFFFFF 0%, #FFFFFF 90%, #FAFAFA 100%);
+  background: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 90%, #FAFAFA 100%);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.quiz-wrapper .main-card .progressBar {
+  display: block;
+  z-index: 2;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  height: 4px;
+  width: 0%;
+  background: #96D449;
+  opacity: 0;
+  -webkit-transition: width 1s ease-in-out, opacity 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out, opacity 1s ease-in-out;
+  -ms-transition: width 1s ease-in-out, opacity 1s ease-in-out;
+  -o-transition: width 1s ease-in-out, opacity 1s ease-in-out;
+  transition: width 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+@media screen and (max-width: 480px) {
+  .quiz-wrapper .main-card {
+    min-height: 350px;
+  }
+}
+/* Actual quiz content */
+.quiz-content {
+  font-family: "Slabo 13px", "Open Sans", "Helvetica", "Arial", sans-serif;
+  color: #000;
+  display: block;
+  text-align: center;
+}
+
+/* Time / Number of questions blocks */
+.quiz-content .intro-block {
+  display: inline-block;
+  margin: 0px 25px;
+  height: 100px;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  font-size: 18px;
+  color: #333;
+  line-height: 40px;
+  text-align: center;
+  cursor: default;
+}
+.quiz-content .intro-block .material-icons {
+  margin: 0px;
+  display: block;
+}
+.quiz-content button.start {
+  display: inline-block;
+  background: #FFB3D0;
+  margin: 20px 0px;
+  padding: 5px 20px;
+  font-size: 34px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 24px;
+  color: #222;
+  vertical-align: middle;
+  -webkit-transform: rotate(-2deg);
+  -ms-transform: rotate(-2deg);
+  -o-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+  transform-origin: 50%;
+}
+.quiz-content button.start:hover {
+  background: #FFA3C7;
+}
+.quiz-content button.start:focus {
+  background: #FF96BE;
+}
+
+/* During quiz */
+.quiz-active {
+  display: inline-block;
+  padding: 20px 60px;
+  line-height: 25px;
+  text-align: center;
+  -webkit-transition: opacity 300ms ease-out;
+  -moz-transition: opacity 300ms ease-out;
+  -ms-transition: opacity 300ms ease-out;
+  -o-transition: opacity 300ms ease-out;
+  transition: opacity 300ms ease-out;
+}
+
+@media screen and (max-width: 480px) {
+  .quiz-active {
+    line-height: 25px;
+    padding: 30px 20px;
+  }
+}
+/* Question titles */
+.quiz-active h3 {
+  margin: 15px 0 0 0;
+  font-size: 22px;
+  line-height: 34px;
+  font-weight: 400;
+  cursor: default !important;
+}
+.quiz-active h3.highlight {
+  background: #FFF57F;
+  color: #000;
+  line-height: 22px;
+  margin-bottom: 15px;
+  padding: 0px 10px;
+  -webkit-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  -o-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  transform: rotate(-1deg);
+}
+.quiz-active h3.highlight.pink {
+  background: #FFB3D0;
+  color: #000;
+}
+.quiz-active ul {
+  list-style-type: none;
+  margin: 20px 40px 0px 40px;
+  padding: 0;
+  text-align: center;
+}
+.quiz-active ul li {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+/* True/false buttons */
+button.option {
+  display: block;
+  margin: 0;
+  padding: 5px;
+  background: #FFFBCC;
+  border: 0;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  cursor: pointer;
+  text-align: center;
+}
+
+button.option:hover {
+  background: #FFF8A9;
+}
+
+button.option:focus {
+  background: #FFF57F;
+}
+
+button.option:target {
+  background: #FFFBCC;
+}
+
+/* Mobile fixes */
+@media screen and (max-width: 480px) {
+  button.option {
+    margin-bottom: 15px;
+  }
+
+  button.option:hover, button.option:focus, button.option:target {
+    background: #FFFBCC;
+  }
+}
+/* Results Section */
+.results h3 {
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.results .reset {
+  z-index: 5;
+  position: absolute;
+  top: 28px;
+  right: 20px;
+  width: auto;
+  padding: 0px 5px;
+  -webkit-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
+
+.gauge-container {
+  display: inline-block;
+  width: 260px;
+  height: 130px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .gauge-container {
+    margin-top: 15px;
+  }
+}
+.gauge-a {
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  width: 260px;
+  height: 130px;
+  background: #D44848;
+  -webkit-border-radius: 130px 130px 0px 0px;
+  -moz-border-radius: 130px 130px 0px 0px;
+  -ms-border-radius: 130px 130px 0px 0px;
+  border-radius: 130px 130px 0px 0px;
+}
+
+.gauge-b {
+  z-index: 3;
+  position: absolute;
+  background: #FFFBCC;
+  width: 63.3333%;
+  height: 63.3333%;
+  top: 36.6666%;
+  margin-left: 18.3333%;
+  margin-right: auto;
+  -webkit-border-radius: 130px 130px 0px 0px;
+  -moz-border-radius: 130px 130px 0px 0px;
+  -ms-border-radius: 130px 130px 0px 0px;
+  border-radius: 130px 130px 0px 0px;
+}
+
+.gauge-c {
+  z-index: 2;
+  position: absolute;
+  background: #96D449;
+  width: 260px;
+  height: 130px;
+  top: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-border-radius: 0px 0px 130px 130px;
+  -moz-border-radius: 0px 0px 130px 130px;
+  -ms-border-radius: 0px 0px 130px 130px;
+  border-radius: 0px 0px 130px 130px;
+  transform-origin: center top;
+  -webkit-transition: all 1.3s ease-in-out;
+  -moz-transition: all 1.3s ease-in-out;
+  -ms-transition: all 1.3s ease-in-out;
+  -o-transition: all 1.3s ease-in-out;
+  transition: all 1.3s ease-in-out;
+}
+
+.gauge-data {
+  z-index: 4;
+  position: absolute;
+  width: 260px;
+  height: 130px;
+  top: 46.6666%;
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 32px;
+  color: #333;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -ms-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+.gauge-data span {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Footer */
+footer {
+  padding-top: 45px;
+  padding-bottom: 60px;
+  background: #33333D;
+}
+
+@media screen and (max-width: 640px) {
+  footer {
+    text-align: center;
+  }
+}
+footer span {
+  display: inline-block;
+  margin-right: 10px;
+}
+footer a {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: white;
+  display: inline-block;
+  margin-right: 20px;
+}
+footer a:hover,
+footer a:focus {
+  color: white;
+  text-decoration: none;
+}
+footer .perts-address {
+  margin-top: 5px;
+  color: #999;
+}
+footer .perts-address span {
+  letter-spacing: 0.5px;
+}

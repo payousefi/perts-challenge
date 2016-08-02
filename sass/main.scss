@@ -1,0 +1,24 @@
+/**
+  * Main CSS stylesheet for PERTS Challenege
+  * by Payam Yousefi | 08-01-16
+  */
+  
+
+// Sass Styles 
+
+@import 'variables';
+@import 'mixins';
+@import 'animations';
+
+// Core Components Styles 
+
+@import 'components';
+
+// Page Templates 
+
+@import 'header';
+@import 'section-info';
+@import 'section-quiz';
+@import 'section-results';
+@import 'footer';
+

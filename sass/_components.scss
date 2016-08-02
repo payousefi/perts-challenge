@@ -1,0 +1,79 @@
+/* Components */
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+body {
+    font-family: $font-open-sans;
+    font-size: 14px;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+a { color: $perts-blue }
+
+a:hover {
+    color: $perts-blue;
+    text-decoration: none
+}
+
+a[ng-click] { cursor: pointer }
+
+p {
+    line-height: 24px;
+    margin: 0 0 25px
+}
+
+p a:hover { text-decoration: underline }
+
+h3 { font-weight: 600 }
+
+button, button:focus {
+    outline: 0;
+    border: 0
+}
+
+button {
+    @include transition(background-color 300ms ease-out);
+}
+
+/* Other options */
+
+.noselect * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.perspective { perspective: 1000px }
+
+/* Material Icons */
+
+.material-icons {
+    margin: 0px 5px;
+    vertical-align: middle
+}
+a .material-icons,
+a .material-icons:hover {
+    text-decoration: none
+}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-64 { font-size: 64px; }
+
+
+/* Section defaults */
+
+.section {
+    padding: 50px 0px;
+    text-align: center
+}
+

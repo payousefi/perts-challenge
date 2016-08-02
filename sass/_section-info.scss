@@ -1,0 +1,47 @@
+/* Section: Quiz Information */
+
+.section-information {
+    padding-right: 40px
+}
+
+@include media($medium-desktop) {
+    .section-information {
+        margin-bottom: 30px;
+        padding-right: 15px
+    }
+}
+
+.section-information {
+    p {
+        font-size: 20px;
+        color: #666;
+        font-weight: 400;
+        line-height: 28px
+    }    
+    .quiz-description {
+        font-weight: 600;
+        color: #333
+    }
+    .more-info-tag {
+        font-size: 18px;
+        line-height: 20px;
+        font-weight: 600
+    }
+    .more-info {
+        display: block;
+        margin: 15px 20px;
+        padding: 15px;
+        background: $light-purple;
+        font-size: 14px;
+        line-height: 18px;
+        color: #333;
+        opacity: 0;
+        @include border-radius(4px);
+        @include animation(fadeIn 1s ease-in-out, forwards)
+    }
+    .more-info a,
+    .more-info a:hover {
+        color: $dark-purple
+    }
+    
+}

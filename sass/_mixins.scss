@@ -1,0 +1,68 @@
+// Media Queries
+@mixin media($media) {
+  @media screen and (max-width: $media) {
+    @content;
+  }
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+    -moz-transform: $transform;
+    transform: $transform;
+}
+
+@mixin transition($transitions...) {
+    -webkit-transition: $transitions;
+    -moz-transition: $transitions;
+    -ms-transition: $transitions;
+    -o-transition: $transitions;
+    transition:$transitions;
+}
+
+@mixin animation($animation, $fill-mode) {
+    -moz-animation: $animation;
+    -webkit-animation: $animation;
+    animation: $animation;
+    -moz-animation-fill-mode: $fill-mode;
+    -webkit-animation-fill-mode: $fill-mode;
+    animation-fill-mode: $fill-mode;
+}
+
+@mixin box-shadow($box-shadow) {    
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+}
+
+// Top to bottom graden
+@mixin linear-gradient($color,  $color-stops...) {
+    background: $color;
+    background: -moz-linear-gradient(top, $color-stops);
+    background: -webkit-linear-gradient(top,  $color-stops);
+    background: linear-gradient(to bottom,  $color-stops);
+}
+
+// For lined paper styling
+@mixin lined-background($lineColor, $paperColor, $size) {
+    background: $paperColor;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from($lineColor), color-stop(4%, $paperColor)) 0 4px;
+    background: -webkit-linear-gradient(top, $lineColor 0%, $paperColor 8%) 0 4px;
+    background: -moz-linear-gradient(top, $lineColor 0%, $paperColor 8%) 0 4px;
+    background: -ms-linear-gradient(top, $lineColor 0%, $paperColor 8%) 0 4px;
+    background: -o-linear-gradient(top, $lineColor 0%, $paperColor 8%) 0 4px;
+    background: linear-gradient(top, $lineColor 0%, $paperColor 8%) 0 4px;
+    -webkit-background-size: 100% $size;
+    -moz-background-size: 100% $size;
+    -ms-background-size: 100% $size;
+    -o-background-size: 100% $size;
+    background-size: 100% $size;
+}
