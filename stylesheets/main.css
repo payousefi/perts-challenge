@@ -304,11 +304,11 @@ header {
   min-height: 270px;
   color: #000;
   text-align: center;
-  -webkit-transition: 0.6s;
-  -moz-transition: 0.6s;
-  -ms-transition: 0.6s;
-  -o-transition: 0.6s;
-  transition: 0.6s;
+  -webkit-transition: transform 0.6s;
+  -moz-transition: transform 0.6s;
+  -ms-transition: transform 0.6s;
+  -o-transition: transform 0.6s;
+  transition: transform 0.6s;
 }
 .quiz-wrapper .main-card.flip {
   -webkit-transform: rotateY(-180deg);
@@ -337,7 +337,6 @@ header {
   -o-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
   transform: rotateY(0deg);
-  /* Lined flashcard style */
   background: #FFFFFF;
   background: -webkit-gradient(linear, 0 0, 0 100%, from(#D9EAF3), color-stop(4%, #FFFFFF)) 0 4px;
   background: -webkit-linear-gradient(top, #D9EAF3 0%, #FFFFFF 8%) 0 4px;
@@ -506,10 +505,11 @@ header {
 /* True/false buttons */
 button.option {
   display: block;
-  margin: 0;
+  margin: 0 0 10px 0;
   padding: 5px;
   background: #FFFBCC;
   border: 0;
+  border-bottom: 1px solid #FFF57F;
   width: 100%;
   font-size: 16px;
   font-weight: bold;
