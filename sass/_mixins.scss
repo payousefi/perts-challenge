@@ -4,6 +4,31 @@
     @content;
   }
 }
+@mixin font-smoothing($value) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin user-select($value){
+  -webkit-touch-callout: $value;
+  -webkit-user-select: $value;
+  -khtml-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value
+}
+
+@mixin box-sizing($box-sizing){
+  -moz-box-sizing: $box-sizing;
+  -webkit-box-sizing: $box-sizing;
+  box-sizing: $box-sizing;
+}
 
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius;
@@ -37,10 +62,15 @@
     animation-fill-mode: $fill-mode;
 }
 
-@mixin box-shadow($box-shadow) {    
+@mixin box-shadow($box-shadow) {
     -webkit-box-shadow: $box-shadow;
     -moz-box-shadow: $box-shadow;
     box-shadow: $box-shadow;
+}
+
+@mixin background-visibility($visibility) {
+    -webkit-backface-visibility: $visibility;
+    backface-visibility: $visibility;
 }
 
 // Top to bottom graden
