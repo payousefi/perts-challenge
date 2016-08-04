@@ -44,7 +44,7 @@
     perspective: 1000px
 }
 .quiz-wrapper {
-    
+
     .main-card {
         z-index: 1;
         perspective: 1000px;
@@ -53,69 +53,70 @@
         min-height: 270px;
         color: #000;
         text-align: center;
-        @include transition(0.6s);
+        @include transition(transform 0.6s);
     }
-    .main-card.flip {    
+    .main-card.flip {
         @include transform(rotateY(-180deg));
     }
-    
+
     // Front/back content for the swaps
-    
-    .main-card .front, .main-card .back {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        transform-style: preserve-3d;
-        display: block;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        z-index: 1
+
+    .main-card {
+
+      .front, .back {
+          @include background-visibility(hidden);
+          transform-style: preserve-3d;
+          display: block;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          z-index: 1
+      }
+      .front *, .back * {
+          @include background-visibility(hidden);
+      }
+
+      .front {
+          @include transform(rotateY(0deg));
+          @include lined-background($card-line-front, #FFFFFF, 20px);
+          @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+      }
+
+      // Pink stripe at top
+      .front:before {
+          content: "\a0";
+          display: block;
+          line-height: 2px;
+          background: #FFF;
+          padding-bottom: 21px;
+          border-bottom: 2px solid $card-stripe
+      }
+
+      // Initially hidden back pane - quiz questions go here
+      .back {
+          @include transform(rotateY(-180deg));
+          @include linear-gradient(#FFFFFF, #FFFFFF 0%, #FFFFFF 90%, $card-shade 100%);
+          @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+      }
+
+      .progressBar {
+          display: block;
+          z-index:2;
+          position: absolute;
+          left:0px;
+          bottom:0px;
+          font-family: $font-open-sans;
+          height: 4px;
+          width:0%;
+          background: $green;
+          opacity:0;
+          @include transition(width 1s ease-in-out, opacity 1s ease-in-out);
+      }
+
     }
-    .main-card .front *, .main-card .back * {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-    
-    .main-card .front {
-        @include transform(rotateY(0deg));
-        /* Lined flashcard style */
-        @include lined-background($card-line-front, #FFFFFF, 20px);
-        @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
-    }
-    
-    // Pink stripe at top 
-    .main-card .front:before {
-        content: "\a0";
-        display: block;
-        line-height: 2px;
-        background: #FFF;
-        padding-bottom: 21px;
-        border-bottom: 2px solid $card-stripe
-    }
-    
-    // Initially hidden back pane - quiz questions go here
-    .main-card .back {
-        @include transform(rotateY(-180deg));
-        @include linear-gradient(#FFFFFF, #FFFFFF 0%, #FFFFFF 90%, $card-shade 100%);
-        @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
-    }
-    
-    .main-card .progressBar {
-        display: block;
-        z-index:2;
-        position: absolute;
-        left:0px;
-        bottom:0px;
-        font-family: $font-open-sans;
-        height: 4px;
-        width:0%;
-        background: $green;
-        opacity:0;
-        @include transition(width 1s ease-in-out, opacity 1s ease-in-out);
-    }
-    
+
 }
-@include media($mobile) {    
+@include media($mobile) {
     .quiz-wrapper .main-card {
         min-height: 350px;
     }
@@ -133,7 +134,7 @@
 /* Time / Number of questions blocks */
 
 .quiz-content {
-    
+
     .intro-block {
         display: inline-block;
         margin: 0px 25px;
@@ -149,7 +150,7 @@
         margin: 0px;
         display:block
     }
-    
+
     // Start button
     button.start {
         display: inline-block;
@@ -161,7 +162,7 @@
         letter-spacing: 1px;
         line-height: 24px;
         color: #222;
-        vertical-align: middle;    
+        vertical-align: middle;
         @include transform(rotate(-2deg));
         transform-origin: 50%
     }
@@ -171,7 +172,7 @@
     button.start:focus {
         background: $highlight-pink-3
     }
-    
+
 }
 
 /* During quiz */
@@ -194,7 +195,7 @@
 /* Question titles */
 
 .quiz-active {
-    
+
     h3 {
         margin: 15px 0 0 0;
         font-size: 22px;
@@ -207,14 +208,14 @@
         color: #000;
         line-height: 22px;
         margin-bottom: 15px;
-        padding: 0px 10px;    
+        padding: 0px 10px;
         @include transform(rotate(-1deg));
     }
     h3.highlight.pink {
         background: $highlight-pink-1;
         color: #000
     }
-    
+
     ul {
         list-style-type: none;
         margin: 20px 40px 0px 40px;
@@ -226,17 +227,18 @@
         margin: 0;
         text-align: center
     }
-    
+
 }
 
 /* True/false buttons */
 
 button.option {
     display: block;
-    margin: 0;
+    margin: 0 0 10px 0;
     padding: 5px;
     background: $highlight-yellow-1;
     border: 0;
+    border-bottom: 1px solid $highlight-yellow-3;
     width: 100%;
     font-size: 16px;
     font-weight: bold;
