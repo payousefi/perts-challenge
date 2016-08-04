@@ -64,7 +64,7 @@
           <!-- Quiz app -->
           <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-0 col-md-6 col-lg-6 perspective">
             <div class="quiz-wrapper noselect" ng-controller="quizCtrl">
-                <div class="main-card">
+                <div ng-class="flip ? 'main-card flip' : 'main-card'">
                     <div class="quiz-content front">
                         <div class="intro" ng-show="!inProgress">
                             <h3 class="highlight pink">Mindset Quiz</h3>

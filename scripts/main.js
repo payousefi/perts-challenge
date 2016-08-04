@@ -25,9 +25,10 @@ mindsetQuizApp.controller('quizCtrl', function($scope, questionFactory,
   $scope.score = 0;
   $scope.inProgress = false;
   $scope.finished = false;
+  $scope.flip = false;
 
   $scope.startQuiz = function () {
-    $('.main-card').toggleClass('flip');
+    $scope.flip = true;
     $scope.questionID = 0;
     $scope.inProgress = true;
     $scope.finished = false;
@@ -47,7 +48,7 @@ mindsetQuizApp.controller('quizCtrl', function($scope, questionFactory,
       // End of quiz!
       $scope.question = "";
       // Hide the card briefly
-      $('.main-card').toggleClass('flip');
+      $scope.flip = false;
       $('.quiz-active').css('opacity', '1');
       $scope.finished=true;
       var result = $scope.score/4;
