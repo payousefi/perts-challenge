@@ -2,7 +2,7 @@
 Front End Developer challenge for PERTS. (August 2016)
 
 ## Live Preview
-A live version of this coding challenge can be viewed [here](http://payamyousefi.com/perts-challenge/).
+Live version no longer available. (Sep 2016)
 
 ## (No) Build Steps
 Due to the app's simple purpose, I decided to keep everything concise: just simply open up `index.html` in a browser, or view the live preview.
